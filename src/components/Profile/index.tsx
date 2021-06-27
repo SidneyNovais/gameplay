@@ -7,18 +7,21 @@ import {
 import { styles } from './styles'
 
 import { Avatar } from '../Avatar'
+import { useAuth } from '../../hooks/auth'
 
 export function Profile() {
+    const { user } = useAuth()
+    console.log(user)
     return (
         <View style={styles.container}>
-            <Avatar urlImage="https://avatars.githubusercontent.com/u/19919529?v=4" />
+            <Avatar urlImage={user.avatar} />
            <View>
                 <View style={styles.user}>
                     <Text style={styles.greeting}>
                         Olá
                     </Text>
                     <Text style={styles.username}>
-                        Sidney
+                        {user.firstName}
                     </Text>
                 </View>
 
